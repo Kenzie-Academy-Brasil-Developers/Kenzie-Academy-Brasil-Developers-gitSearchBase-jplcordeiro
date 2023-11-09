@@ -19,8 +19,11 @@ const fetchUserData = () => {
           localStorage.setItem("githubUserInfo", JSON.stringify(data));
           window.location.replace("/src/pages/profile.html");
         }
-      });
-}
+      })
+      .catch((error) => {
+        console.error("Erro na requisição:", error)  
+      })
+  }     
 
 const profileButton = document.querySelector('.index__button');
 profileButton.addEventListener('click', fetchUserData);
